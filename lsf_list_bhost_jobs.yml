@@ -5,6 +5,6 @@
 
   tasks:
   - name: This is a test 
-    ansible.builtin.shell:
-      cmd: bhosts -o "HOST_NAME NJOBS" -json
+    ansible.builtin.command:
+      cmd: bhosts 
     register: lsf_output
