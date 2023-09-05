@@ -1,0 +1,14 @@
+---
+- name: List LSF nodes bhost jobs 
+  hosts: all
+  connection: local
+
+  tasks: 
+  - name: Run "bhosts -o HOST_NAME NJOBS -json" on hosts 
+    ansible.builtin.command: bhosts -o host_name njobs -json
+    register: bhosts_json
+  
+    ansible.builtin.debug:
+    var: bhosts_json
+
+    
