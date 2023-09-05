@@ -7,5 +7,5 @@
   tasks:
   - name: This is a test 
     ansible.builtin.command:
-      cmd: bhosts 
+      cmd: hostname 
     register: lsf_output
