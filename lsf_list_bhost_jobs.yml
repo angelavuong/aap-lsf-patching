@@ -1,13 +1,10 @@
-- name: List LSF nodes bhost jobs 
+- name: This is a playbook test
   hosts: all
-  connection: local
+  connection: local 
 
-  tasks: 
-- name: Run command "hostname" on rhel and register
-  ansible.builtin.command: 
-    cmd: bhosts -o "HOST_NAME NJOBS"
-  register: lsf_output
-  
-  ansible.builtin.debug:
-    var: lsf_output
 
+  tasks:
+  - name: This is a test 
+    ansible.builtin.command:
+      cmd: bhosts -o "HOST_NAME NJOBS" -json
+    register: lsf_output
