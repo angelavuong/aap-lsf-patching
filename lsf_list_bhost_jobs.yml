@@ -10,7 +10,7 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-      msg: "{{ lsf_output.results[0] }}"
+      msg: "{{ lsf_output.NJOBS[0] }}"
       
 
   # - name: Close hosts if NJOBS == 0:
