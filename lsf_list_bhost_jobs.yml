@@ -11,5 +11,5 @@
       cmd: "cat /etc/redhat-release" 
     register: lsf_output
 
- - ansible.builtin.debug:
+  - ansible.builtin.debug:
       var: lsf_output
