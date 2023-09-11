@@ -1,13 +1,12 @@
 - name: This is a playbook test
   hosts: all
-  connection: local 
   gather_facts: true 
 
 
   tasks:
   - name: This is a test 
     ansible.builtin.command:
-      cmd: "hostname"
+      cmd: "bhosts -o \"HOST_NAME NJOBS\" -json"
       register: lsf_output
 
   - ansible.builtin.debug:
