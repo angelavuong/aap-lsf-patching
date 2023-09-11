@@ -10,8 +10,6 @@
     ansible.builtin.command:
       cmd: "cat /etc/redhat-release" 
     register: lsf_output
-  
-  # - name: This is a test 2
-  #   ansible.builtin.shell:
-  #     cmd: hostname
-  #   register: lsf_output_2
+
+ - ansible.builtin.debug:
+      var: lsf_output
