@@ -10,7 +10,7 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-      var: lsf_output.stdout_lines
+      # var: lsf_output.stdout_lines
       msg: "{{item.key}}: {{item.value}}"
     loop: "{{ lookup('ansible.builtin.dict', lsf_output) }}"
       
