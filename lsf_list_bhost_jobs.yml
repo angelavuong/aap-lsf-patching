@@ -1,7 +1,6 @@
 - name: This is a playbook test
   hosts: all
   connection: local 
-  become: true
   gather_facts: true 
 
 
