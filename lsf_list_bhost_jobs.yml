@@ -8,6 +8,7 @@
   - name: This is a test 
     ansible.builtin.command:
       cmd: "hostname"
+      register: lsf_output
 
   - ansible.builtin.debug:
       var: lsf_output
