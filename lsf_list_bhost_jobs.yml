@@ -1,6 +1,5 @@
 - name: This is a playbook test
   hosts: all
-  become: true
   gather_facts: true 
 
 
