@@ -8,7 +8,7 @@
   tasks:
   - name: This is a test 
     ansible.builtin.command:
-      cmd: "bhosts -o "HOST_NAME NJOBS" -json" 
+      cmd: "bhosts -o \"HOST_NAME NJOBS\" -json" 
     register: lsf_output
 
   - ansible.builtin.debug:
