@@ -10,4 +10,8 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-      var: lsf_output
+      var: lsf_output["NJOBS"]
+
+  # - name: Close hosts if NJOBS == 0:
+  #   ansible.builtin.shell:
+  #     cmd: "This is a test"
