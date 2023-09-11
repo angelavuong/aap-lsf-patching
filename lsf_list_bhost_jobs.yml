@@ -11,6 +11,9 @@
 
   - ansible.builtin.debug:
       var: lsf_output.stdout_lines
+      msg: "{{item.key}}: {{item.value}}"
+    loop: "{{ lookup('ansible.builtin.dict', lsf_output) }}"
+      
 
   # - name: Close hosts if NJOBS == 0:
   #   ansible.builtin.shell:
