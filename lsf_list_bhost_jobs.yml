@@ -10,7 +10,7 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-     msg: "{{ lsf_output.stdout | regex_search(regexp, '\\NJOBS') }}"
+     msg: "{{ lsf_output.stdout | regex_search(regexp, '\\RECORDS') }}"
       
 
   # - name: Close hosts if NJOBS == 0:
