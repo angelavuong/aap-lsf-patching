@@ -8,10 +8,10 @@
   tasks:
   - name: This is a test 
     ansible.builtin.command:
-      cmd: hostname 
+      cmd: "cat /etc/redhat-release" 
     register: lsf_output
   
-  - name: This is a test 2
-    ansible.builtin.shell:
-      cmd: hostname
-    register: lsf_output_2
+  # - name: This is a test 2
+  #   ansible.builtin.shell:
+  #     cmd: hostname
+  #   register: lsf_output_2
