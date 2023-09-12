@@ -17,6 +17,6 @@
       command: "bhosts -o \"HOST_NAME NJOBS\" -json"
       parser:
         name: ansible.utils.json
-      register: lsf_output
+    register: lsf_output
         
     
