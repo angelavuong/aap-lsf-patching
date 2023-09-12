@@ -9,10 +9,10 @@
       cmd: "bhosts -o \"HOST_NAME NJOBS\" -json"
     register: lsf_output
 
-  - ansible.builtin.debug:
-     msg: "{{ lsf_output.stdout | regex_search(regexp, '\\RECORDS') }}"
-      
+  # - ansible.builtin.debug:
+  #    msg: 
 
-  # - name: Close hosts if NJOBS == 0:
-  #   ansible.builtin.shell:
-  #     cmd: "This is a test"
+  - name: Stop jobs if NJOBS = 0
+    ansible.builtin.shell:
+      cmd: "This is a test!"
+      when: "\"NJOBs\\\" : 0,' in lsf_output.stdout"
