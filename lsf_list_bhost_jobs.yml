@@ -7,10 +7,10 @@
   - name: This is a test 
     ansible.builtin.shell:
       cmd: "bhosts -o \"HOST_NAME NJOBS\" -json"
-    register: lsf_output
+    register: lsf_output.stdout
 
   - ansible.builtin.debug:
-     msg: "{{ lsf_output[1] }}"
+     msg: "{{ lsf_output[1].records[0].name }}"
 
   # - name: Stop jobs if NJOBS = 0
   #   ansible.builtin.shell:
