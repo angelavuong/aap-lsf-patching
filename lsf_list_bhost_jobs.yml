@@ -4,18 +4,19 @@
 
 
   tasks:
-  - name: This is a test 
-    ansible.builtin.shell:
-      cmd: "bhosts -o \"HOST_NAME NJOBS\""
-    register: lsf_output
+  # - name: This is a test 
+  #   ansible.builtin.shell:
+  #     cmd: "bhosts -o \"HOST_NAME NJOBS\""
+  #   register: lsf_output
 
-  - ansible.builtin.debug:
-      msg: "{{ lsf_output }}"
+  # - ansible.builtin.debug:
+  #     msg: "{{ lsf_output }}"
 
   - name: Pick up lines we are interested in
-    set_fact:
-      important_lines: "{{ important_lines|default([]) + [item] }}"
-    when: item.split(" ")
-    with items:
-    - "{{ lsf_output }}"
+    ansible.utils.cli_parse:
+      command: "bhosts -o \"HOST_NAME NJOBS\" -json"
+      parser:
+        name: ansible.utils.json
+      register: lsf_output
+        
     
