@@ -10,7 +10,7 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-      msg: "{{ lsf_output[1].records[0].name }}"
+      msg: "{{ lsf_output.stdout }}"
 
   # - name: Stop jobs if NJOBS = 0
   #   ansible.builtin.shell:
