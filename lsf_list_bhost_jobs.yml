@@ -10,13 +10,7 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-      msg: "{{ lsf_output }}"
-
-  - ansible.set_fact:
-    njobs: "{{ lsf_output.stdout_lines | map("regex_search","NJOBS")|select("string")|list }}"
-
-  - ansible.builtin.debug:
-      msg: "{{ njobs }}"
+      msg: "{{ lsf_output.RECORDS[0] }}"
   
   # - name: Pick up lines we are interested in
   #   ansible.utils.cli_parse:
