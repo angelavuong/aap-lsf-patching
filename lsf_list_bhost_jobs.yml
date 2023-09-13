@@ -4,13 +4,10 @@
 
 
   tasks:
-  - name: This is a test 
+  - name: Run bhost on LSF nodes to find NJOBS count
     ansible.builtin.shell:
       cmd: "bhosts -o \"HOST_NAME NJOBS\" -json"
     register: lsf_output
-
-  - ansible.builtin.debug:
-      msg: "{{ lsf_output.stdout_lines }}"
 
   - ansible.builtin.set_fact:
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
@@ -18,11 +15,8 @@
   - ansible.builtin.debug:
       msg: "{{ clean_lsf_output.RECORDS[0] }}"
   
-  # - name: Pick up lines we are interested in
-  #   ansible.utils.cli_parse:
-  #     command: "bhosts -o \"HOST_NAME NJOBS\" -json"
-  #     parser:
-  #       name: ansible.utils.json
-  #   register: lsf_output
+  - name: Select hosts with NJOBS = 0
+    ansible.builtin.debug: 
+      msg: "The host {{ clean_lsf_output.RECORDS[0].HOST_NAME }} has 0 jobs."
         
     
