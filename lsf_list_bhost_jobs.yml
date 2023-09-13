@@ -10,7 +10,7 @@
     register: lsf_output
 
   - ansible.builtin.debug:
-      msg: "{{ lsf_output.RECORDS[0] }}"
+      msg: "{{ lsf_output.stdout_lines }}"
   
   # - name: Pick up lines we are interested in
   #   ansible.utils.cli_parse:
