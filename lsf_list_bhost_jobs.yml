@@ -16,7 +16,7 @@
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
   
   - ansible.builtin.debug:
-      msg: "{{ clean_lsf_output.stdout_lines }}"
+      msg: "{{ clean_lsf_output.RECORDS[0] }}"
   
   # - name: Pick up lines we are interested in
   #   ansible.utils.cli_parse:
