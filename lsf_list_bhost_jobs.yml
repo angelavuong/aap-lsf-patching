@@ -12,7 +12,7 @@
   - ansible.builtin.debug:
       msg: "{{ lsf_output.stdout_lines.RECORDS[0] }}"
 
-  - ansible.set_fact:
+  - ansible.builtin.set_fact:
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
   
   - ansible.builtin.debug:
