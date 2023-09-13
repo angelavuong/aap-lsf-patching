@@ -17,6 +17,6 @@
   
   - name: Select hosts with NJOBS = 0
     ansible.builtin.debug: 
-      msg: "The host {{ clean_lsf_output.RECORDS[0].HOST_NAME }} has {{ clean_lsf_output.RECORDS[0].NJOBS }} jobs."
+      msg: "The host {{ clean_lsf_output.RECORDS.HOST_NAME }} has {{ clean_lsf_output.RECORDS.NJOBS }} jobs."
         
     
