@@ -13,7 +13,7 @@
       msg: "{{ lsf_output }}"
 
   - ansible.set_fact:
-    njobs: "{{ lsf_output.stdout_lines | map("regex_search","NJOBS")|list }}"
+    njobs: "{{ lsf_output.stdout_lines | map("regex_search","NJOBS")|select("string")|list }}"
 
   - ansible.builtin.debug:
       msg: "{{ njobs }}"
