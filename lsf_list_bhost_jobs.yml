@@ -13,13 +13,13 @@
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
   
   - ansible.builtin.debug:
-      msg: "{{ clean_lsf_output.RECORDS[0] }}"
+      msg: "{{ clean_lsf_output.RECORDS[0].NJOBS }}"
   
-  - name: Select hosts with NJOBS = 0
-    ansible.builtin.debug: 
-      msg: "The host {{ item.RECORDS.HOST_NAME }} has {{ item.RECORDS.NJOBS }} jobs."
-    with_items:
-      - "{{ clean_lsf_output }}"
+  # - name: Select hosts with NJOBS = 0
+  #   ansible.builtin.debug: 
+  #     msg: "The host {{ item.RECORDS.HOST_NAME }} has {{ item.RECORDS.NJOBS }} jobs."
+  #   with_items:
+  #     - "{{ clean_lsf_output }}"
 
         
     
