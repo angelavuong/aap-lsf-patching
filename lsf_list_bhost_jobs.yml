@@ -19,7 +19,7 @@
     ansible.builtin.set_fact:
       hostnames: "{{ item.RECORDS.HOST_NAME }}"
       njobs: "{{ item.RECORDS.NJOBS }}"
-      with_items: "{{ clean_lsf_output }}"
+    with_items: "{{ clean_lsf_output }}"
 
   
 
