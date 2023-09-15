@@ -13,7 +13,7 @@
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
   
   - ansible.builtin.debug:
-      msg: "{{ clean_lsf_output.RECORDS[0].NJOBS }}"
+      msg: "{{ clean_lsf_output.RECORDS[0].HOST_NAME }}"
   
   # - name: Select hosts with NJOBS = 0
   #   ansible.builtin.debug: 
