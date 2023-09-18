@@ -8,6 +8,7 @@
     ansible.builtin.shell:
       cmd: "bhosts -o \"HOST_NAME NJOBS\" -json"
     register: lsf_output
+    run_once: true
 
   - ansible.builtin.set_fact:
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
