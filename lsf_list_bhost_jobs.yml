@@ -16,11 +16,10 @@
   - ansible.builtin.debug:
       msg: "{{ clean_lsf_output.RECORDS[0].HOST_NAME }}"
   
-  # - name: Set facts
-  #   ansible.builtin.set_fact:
-  #     hostnames: "{{ item.RECORDS[item].HOST_NAME }}"
-  #     njobs: "{{ item.RECORDS[item].NJOBS }}"
-  #   with_items: "{{ clean_lsf_output }}"
+  - name: Set facts
+    ansible.builtin.set_fact:
+      res: "{{ res | default({}) | combine({ item['HOST_NAME']: item }) }}"
+    loop: "{{ clean_lsf_output }}"
 
   
 
