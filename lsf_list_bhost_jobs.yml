@@ -19,6 +19,7 @@
   - name: Set facts
     ansible.builtin.set_fact:
       res: "{{ res | default({}) | combine({ item['HOST_NAME']: item }) }}"
+    wantlist: true
     loop: "{{ clean_lsf_output }}"
 
   
