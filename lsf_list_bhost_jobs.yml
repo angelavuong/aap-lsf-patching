@@ -11,7 +11,7 @@
     run_once: true
 
   - ansible.builtin.set_fact:
-      clean_lsf_output: "{{ lsf_output.stdout | replace('\','')  }}"
+      clean_lsf_output: "{{ lsf_output.stdout | replace('\','') | items2dict }}"
   
   - ansible.builtin.debug:
       msg: "{{ clean_lsf_output.RECORDS[0].HOST_NAME }}"
