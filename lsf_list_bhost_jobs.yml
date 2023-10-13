@@ -34,7 +34,7 @@
     ansible.builtin.yum:
       name: '*'
       state: latest
-    become: root
+    become: yes
     when: njobs == "0"
 
   
