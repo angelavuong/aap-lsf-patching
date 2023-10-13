@@ -10,6 +10,9 @@
     register: lsf_output
     run_once: true
 
+  - ansible.builtin.debug:
+      msg: "{{ lsf_output.RECORDS[0].HOST_NAME }}"
+  
   - name: set njobs by host
     vars:
       njobs_all: "{{ lsf_output.stdout.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
