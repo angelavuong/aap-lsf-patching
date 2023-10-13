@@ -21,7 +21,7 @@
       
   - name: If LSF node has 0 jobs, patch the server
     ansible.builtin.debug:
-      var: hostvar
+      var: njobs
 
   
 
