@@ -11,7 +11,7 @@
     run_once: true
 
   - ansible.builtin.debug:
-      msg: "{{ lsf_output.HOST_NAME }}"
+      msg: "{{ lsf_output }}"
   
   - name: set njobs by host
     vars:
