@@ -13,9 +13,6 @@
   - ansible.builtin.set_fact:
       clean_lsf_output: "{{ lsf_output.stdout | replace('\','') }}"
   
-  - ansible.builtin.debug:
-      msg: "{{ clean_lsf_output }}"
-  
   - name: set njobs by host
     vars:
       njobs_all: "{{ clean_lsf_output.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
