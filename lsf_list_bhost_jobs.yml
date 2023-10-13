@@ -26,7 +26,7 @@
       cmd: "badmin hclose {{ inventory_hostname}}"
     when: njobs == "0"
 
-  - name: Pause for 10 minutes to allow LSF hosts to properly close
+  - name: Pause for 2 minutes to allow LSF hosts to properly close
     ansible.builtin.pause:
       minutes: 2
 
