@@ -20,8 +20,9 @@
       njobs: "{{ njobs_all[inventory_hostname] }}"
       
   - name: If LSF node has 0 jobs, patch the server
-    ansible.builtin.debug:
-      var: njobs
+    ansible.builtin.shell:
+      cmd: "echo THIS IS A TEST!"
+    when: njobs == 0
 
   
 
