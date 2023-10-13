@@ -16,11 +16,11 @@
   - ansible.builtin.debug:
       msg: "{{ clean_lsf_output }}"
   
-  # - name: set njobs by host
-  #   vars:
-  #     njobs_all: "{{ lsf_output.stdout.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
-  #   set_fact:
-  #     njobs: "{{ njobs_all[inventory_hostname] }}"
+  - name: set njobs by host
+    vars:
+      njobs_all: "{{ clean_lsf_output.stdout.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
+    set_fact:
+      njobs: "{{ njobs_all[inventory_hostname] }}"
       
  
   
