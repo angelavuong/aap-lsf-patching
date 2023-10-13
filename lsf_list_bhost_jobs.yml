@@ -1,7 +1,6 @@
-- name: This is a playbook test
+- name: This playbook checks LSF nodes for 0 pending jobs and will patch the LSF server.
   hosts: all
   gather_facts: false
-
 
   tasks:
   - name: Run bhost on LSF nodes to find NJOBS count
@@ -22,11 +21,9 @@
   - ansible.builtin.debug:
       var: njobs
     
-  - name: If LSF node has 0 jobs, patch the server
-    ansible.builtin.yum:
-      name: '*'
-      state: latest
-    become: yes
+  - name: If LSF node has 0 jobs, run "badmin hclose"
+    ansible.builtin.shell:
+      cmd: "badmin hclose {{ inventory_hostname}}"
     when: njobs == "0"
 
   
