@@ -10,17 +10,19 @@
     register: lsf_output
     run_once: true
 
-  - ansible.builtin.debug:
-      msg: "{{ lsf_output }}"
+  - ansible.builtin.set_fact:
+      clean_lsf_output: "{{ lsf_output.stdout | replace('\','') }}"
   
-  - name: set njobs by host
-    vars:
-      njobs_all: "{{ lsf_output.stdout.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
-    set_fact:
-      njobs: "{{ njobs_all[inventory_hostname] }}"
+  - ansible.builtin.debug:
+      msg: "{{ clean_lsf_output }}"
+  
+  # - name: set njobs by host
+  #   vars:
+  #     njobs_all: "{{ lsf_output.stdout.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
+  #   set_fact:
+  #     njobs: "{{ njobs_all[inventory_hostname] }}"
       
-  # - ansible.builtin.set_fact:
-  #     clean_lsf_output: "{{ lsf_output.stdout | replace('\','') }}"
+ 
   
   # - ansible.builtin.debug:
   #     msg: "{{ clean_lsf_output.RECORDS[0].HOST_NAME }}"
