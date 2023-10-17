@@ -1,0 +1,31 @@
+- name: This playbook checks LSF nodes for 0 pending jobs and will patch the LSF server.
+  hosts: all
+  gather_facts: false
+
+  tasks:
+   - name: Run bhost on LSF nodes to find NJOBS count
+    ansible.builtin.shell:
+      cmd: "bhosts -o \"HOST_NAME NJOBS\" -json"
+    register: lsf_output
+    run_once: true
+
+  - ansible.builtin.set_fact:
+      clean_lsf_output: "{{ lsf_output.stdout | replace('\','') }}"
+  
+  - name: set njobs by host
+    vars:
+      njobs_all: "{{ clean_lsf_output.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
+    set_fact:
+      njobs: "{{ njobs_all[inventory_hostname] }}"
+
+  - ansible.builtin.debug:
+      var: njobs
+    
+  - name: If LSF node has 0 jobs, run "badmin hclose"
+    ansible.builtin.shell:
+      cmd: "badmin hclose {{ inventory_hostname}}"
+    when: njobs == "0"
+
+  - name: Pause for 2 minutes to allow LSF hosts to properly close
+    ansible.builtin.pause:
+      minutes: 2
