@@ -26,7 +26,7 @@
        cmd: "badmin hclose {{ inventory_hostname}}"
      when: njobs == "0"
 
-   - ansible.builtin.set_stat:
+   - ansible.builtin.set_stats:
        data:
          lsf_njobs: "{{ njobs }}"
 
