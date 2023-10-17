@@ -17,7 +17,6 @@
        njobs_all: "{{ clean_lsf_output.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
      set_fact:
        njobs: "{{ njobs_all[inventory_hostname] }}"
-       # cacheable: true
 
    - ansible.builtin.debug:
        var: njobs
@@ -27,6 +26,11 @@
        cmd: "badmin hclose {{ inventory_hostname}}"
      when: njobs == "0"
 
+   - ansible.builtin.set_stat:
+       data:
+         lsf_njobs: "{{ njobs }}"
+
    - name: Pause for 2 minutes to allow LSF hosts to properly close
      ansible.builtin.pause:
        minutes: 2
+       
