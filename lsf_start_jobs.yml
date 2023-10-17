@@ -1,0 +1,8 @@
+- name: This playbook open LSF node for new jobs post-patching process
+  hosts: all
+  gather_facts: false
+
+  - name: Reopen LSF nodes for jobs
+    ansible.builtin.shell:
+      cmd: "badmin hopen {{ inventory_hostname}}"
+    when: njobs == "0"
