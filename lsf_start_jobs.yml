@@ -6,4 +6,4 @@
   - name: Reopen LSF nodes for jobs
     ansible.builtin.shell:
       cmd: "badmin hopen {{ inventory_hostname}}"
-    when: njobs == "0"
+    when: lsf_njobs == "0"
