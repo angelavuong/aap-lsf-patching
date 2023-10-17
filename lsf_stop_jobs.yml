@@ -28,7 +28,7 @@
 
    - ansible.builtin.set_stats:
        data:
-         lsf_njobs: "{{ njobs }}"
+         lsf_njobs: "{{ njobs[inventory_hostname] }}"
 
    - name: Pause for 2 minutes to allow LSF hosts to properly close
      ansible.builtin.pause:
