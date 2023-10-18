@@ -18,7 +18,6 @@
      set_stats:
        data:
          njobs: "{{ njobs_all[inventory_hostname] }}"
-       aggregate: true
     
    # - name: If LSF node has 0 jobs, run "badmin hclose"
    #   ansible.builtin.shell:
