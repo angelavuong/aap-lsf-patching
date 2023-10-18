@@ -23,7 +23,7 @@
 
    - ansible.builtin.set_stats:
        data:
-         lsf_njobs: njobs
+         lsf_njobs: "{{ njobs }}"
        per_host: yes
     
    # - name: If LSF node has 0 jobs, run "badmin hclose"
