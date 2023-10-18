@@ -24,7 +24,7 @@
        per_host: yes 
       
    - ansible.builtin.debug:
-       msg: "{{ lsf_njobs }}"
+       var: lsf_njobs
     
    - name: If LSF node has 0 jobs, run "badmin hclose"
      ansible.builtin.shell:
