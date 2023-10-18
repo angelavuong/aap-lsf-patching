@@ -25,12 +25,12 @@
        per_host: yes 
       
    - ansible.builtin.debug:
-       var: lsf_njobs
+       var: njobs
     
    - name: If LSF node has 0 jobs, run "badmin hclose"
      ansible.builtin.shell:
        cmd: "badmin hclose {{ inventory_hostname}}"
-     when: lsf_njobs == "0"
+     when: njobs == "0"
 
    - name: Pause for 2 minutes to allow LSF hosts to properly close
      ansible.builtin.pause:
