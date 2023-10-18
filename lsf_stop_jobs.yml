@@ -16,7 +16,7 @@
      vars:
        njobs_all: "{{ clean_lsf_output.RECORDS | items2dict(key_name='HOST_NAME', value_name='NJOBS') }}"
      set_fact:
-         njobs: "{{ njobs_all[inventory_hostname] }}"
+       njobs: "{{ njobs_all[inventory_hostname] }}"
       
    - ansible.builtin.debug:
        var: njobs
