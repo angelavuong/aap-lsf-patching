@@ -19,11 +19,6 @@
        data:
          njobs: "{{ njobs_all[inventory_hostname] }}"
        per_host: yes 
-       
-   # - ansible.builtin.set_stats:
-   #     data:
-   #       lsf_njobs: njobs
-   #     per_host: yes 
       
    - ansible.builtin.debug:
        var: njobs
