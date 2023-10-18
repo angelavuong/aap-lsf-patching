@@ -18,7 +18,7 @@
      set_stats:
        data: 
          njobs: "{{ njobs_all[inventory_hostname] }}"
-       per_host: yes
+       # per_host: yes
       
    - ansible.builtin.debug:
        msg: "{{ njobs }}"
