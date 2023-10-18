@@ -4,7 +4,7 @@
 
   tasks:
   - ansible.builtin.debug:
-      var: njobs
+      msg: "{{ njobs }}"
       
   - name: Patch LSF servers if njobs == 0
     ansible.builtin.yum:
