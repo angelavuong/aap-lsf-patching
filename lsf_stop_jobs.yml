@@ -24,7 +24,7 @@
    - name: Write variables to a file
      ansible.builtin.copy:
        content: "{{ njobs }}"
-       dest: "/home/njobs.json"
+       dest: "njobs.json"
 
    - name: If LSF node has 0 jobs, run "badmin hclose"
      ansible.builtin.shell:
