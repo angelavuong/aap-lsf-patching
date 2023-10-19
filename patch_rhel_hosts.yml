@@ -1,7 +1,8 @@
 - name: This playbook with patch RHEL hosts when njobs == 0
   hosts: all
   gather_facts: false
-
+  vars_files: /home/njobs.json
+  
   tasks:
   - ansible.builtin.debug:
       var: njobs
