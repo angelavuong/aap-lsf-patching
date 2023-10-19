@@ -22,13 +22,6 @@
    - ansible.builtin.debug:
         var: njobs
 
-   # - name: Write variables to a file
-   #   ansible.builtin.copy:
-   #     content: "{{ njobs }}"
-   #     dest: "/tmp/njobs.json"
-   #     delegate_to: localhost
-       
-
    - name: If LSF node has 0 jobs, run "badmin hclose"
      ansible.builtin.shell:
        cmd: "badmin hclose {{ inventory_hostname}}"
