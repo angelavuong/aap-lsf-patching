@@ -2,6 +2,8 @@
 
 This demo will query for the LSF cluster for nodes with njobs == 0 and patch those servers. 
 
+![image](https://github.com/angelavuong/aap-lsf-patching/blob/main/images/aap-lsf-patching.png)
+
 **Workflow Job Templates**
 1. Query LSF job count and stop LSF jobs
 - https://github.com/angelavuong/aap-lsf-patching/blob/main/lsf_stop_jobs.yml
