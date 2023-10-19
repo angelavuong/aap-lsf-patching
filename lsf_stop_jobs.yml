@@ -21,7 +21,7 @@
    - ansible.builtin.debug:
         var: njobs
 
-   - name: Write variables to a file:
+   - name: Write variables to a file
      ansible.builtin.copy:
        content: "{{ njobs }}"
        dest: "/home/njobs.json"
