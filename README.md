@@ -16,3 +16,7 @@ This demo will query for the LSF cluster for nodes with njobs == 0 and patch tho
 3. Re-open LSF nodes
 - https://github.com/angelavuong/aap-lsf-patching/blob/main/lsf_start_jobs.yml
 - Enable Fact Storage
+
+**Future additions:**
+- Differentiate between master/worker LSF nodes
+- Reboot servers that have been patched 
