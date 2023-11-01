@@ -12,3 +12,8 @@
       state: latest
     become: yes
     when: njobs == "0"
+
+  - name: Reboot patched servers
+    ansible.builtin.reboot:
+      reboot_timeout: 3600
+    when: njobs == "0"
