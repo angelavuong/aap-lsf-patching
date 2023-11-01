@@ -12,6 +12,7 @@ This demo will query for the LSF cluster for nodes with njobs == 0 and patch tho
 2. Patch RHEL servers
 - https://github.com/angelavuong/aap-lsf-patching/blob/main/patch_rhel_hosts.yml
 - Enable Fact Storage
+- Privilege Escalation (due to server reboot)
 
 3. Re-open LSF nodes
 - https://github.com/angelavuong/aap-lsf-patching/blob/main/lsf_start_jobs.yml
